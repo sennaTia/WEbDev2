@@ -1,3 +1,89 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.hero-section {
+    background-image: url('/images/backgroundhome.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* optionele overlay */
+}
+
+.site-header {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    font-size: 1.2rem;
+}
+
+.brand-name {
+    font-style: italic;
+    color: white;
+}
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.main-heading {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: #2a66f3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #1e4fc7;
+
 body {
     margin: 0;
     padding: 0;
@@ -71,4 +157,5 @@ body {
   color: white;
   font-size: 1.2rem;
   line-height: 1;
+
 }
