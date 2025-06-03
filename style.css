@@ -12,7 +12,7 @@ body, html {
 }
 
 .hero-section {
-    background-image: url('/images/backgroundhome.png'); 
+    background-image: url('/WEbDev2/images/backgroundhome.png'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -155,4 +155,70 @@ body, html {
   font-size: 1.2rem;
   line-height: 1;
 
+}
+
+.top-destinations {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f4f8fb;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #111;
+}
+
+.destinations-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.destination-card {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.destination-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.destination-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.cta-button-wrapper {
+  margin-top: 2rem;
+}
+
+.book-button {
+  display: inline-block;
+  background-color: #1e40af;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  
+  transition: all 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #2563eb;
 }
