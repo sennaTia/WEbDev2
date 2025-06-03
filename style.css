@@ -1,7 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .promo-section {
   background-color: #f1f4f6;
   padding: 4rem 2rem;
   font-family: Arial, sans-serif;
+  height: 40vh;
 }
 
 .promo-content {
