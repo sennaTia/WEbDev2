@@ -22,7 +22,7 @@
             <li><a href="boekingen.php">Boekingen</a></li> 
         </ul>
     </nav>
-    <a href="" class="login-link">Login</a>
+    <a href="login.php" class="login-link">Login</a>
 </header>
 
 
