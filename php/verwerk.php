@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Inloggen gelukt
         $_SESSION['gebruiker_id'] = $gebruiker['id'];
         $_SESSION['naam'] = $gebruiker['naam'];
-        header('Location: account.php');
+        header('Location: /account.php');
         exit;
     } else {
         echo "❌ Ongeldige inloggegevens.";

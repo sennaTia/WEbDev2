@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'php/db.php';
 session_start();
 
 if (!isset($_SESSION['gebruiker_id'])) {
@@ -16,65 +16,17 @@ $landen = $pdo->query("SELECT DISTINCT land FROM hotels")->fetchAll(PDO::FETCH_C
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+      <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8" />
     <title>Boek een Reis</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f8;
-            margin: 0; padding: 0;
-            color: #333;
-        }
-        header {
-            background-color: #0077cc;
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        main {
-            max-width: 600px;
-            background: white;
-            margin: 40px auto;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-        form label {
-            display: block;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-        select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 8px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #0077cc;
-            color: white;
-            border: none;
-            margin-top: 30px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #005fa3;
-        }
-    </style>
+   
 </head>
 <body>
 <header>
     Reis boeken — welkom, <?= htmlspecialchars($_SESSION['naam']) ?>
 </header>
 <main>
-    <form action="verwerk_boeking.php" method="POST" id="boekForm">
+    <form action="php/verwerk_boeking.php" method="POST" id="boekForm">
         <label for="land">Land:</label>
         <select name="land" id="land" required>
             <option value="" disabled selected>-- Kies een land --</option>
@@ -121,5 +73,7 @@ landSelect.addEventListener('change', function() {
     hotelSelect.value = ""; // reset hotel keuze
 });
 </script>
+
+
 </body>
 </html>

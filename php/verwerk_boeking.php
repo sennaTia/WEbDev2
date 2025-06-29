@@ -3,7 +3,7 @@ require 'db.php';
 session_start();
 
 if (!isset($_SESSION['gebruiker_id'])) {
-    header('Location: login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -48,10 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<h1>🎉 Boeking succesvol!</h1>";
     echo "<p>Je reis naar <strong>" . htmlspecialchars($land) . "</strong> met verblijf in <strong>" . htmlspecialchars($hotel['land']) . "</strong> is geboekt.</p>";
     echo "<p>Totaalprijs: €" . number_format($totaal_prijs, 2) . "</p>";
-    echo "<p><a href='account.php'>Terug naar je account</a></p>";
+    echo "<p><a href='/account.php'>Terug naar je account</a></p>";
     echo "</body></html>";
     exit;
 } else {
-    header('Location: book.php');
+    header('Location: /book.php');
     exit;
 }
