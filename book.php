@@ -16,7 +16,7 @@ $landen = $pdo->query("SELECT DISTINCT land FROM hotels")->fetchAll(PDO::FETCH_C
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8" />
     <title>Boek een Reis</title>
    

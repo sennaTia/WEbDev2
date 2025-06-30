@@ -25,7 +25,7 @@ $boekingen = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8" />
     <title>Mijn Boekingen - Reisbureau</title>
    

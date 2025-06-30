@@ -12,7 +12,7 @@ $foutmelding = $_GET['error'] ?? '';
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8" />
     <title>Login</title>
 </head>

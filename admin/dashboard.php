@@ -1,27 +1,33 @@
 <?php
+require '../php/db.php';
 session_start();
 
-// Controleer of de gebruiker is ingelogd en admin is
-if (!isset($_SESSION['gebruiker_id']) || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+// Alleen admin toegang
+if (!isset($_SESSION['gebruiker_id']) || ($_SESSION['is_admin'] ?? 0) != 1) {
     header('Location: ../login.php');
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Welkom in het Admin Dashboard</h1>
-    <p>Hallo, <?= htmlspecialchars($_SESSION['naam']) ?>!</p>
-
-    <ul>
-        <li><a href="reizen.php">Reizen beheren</a></li>
-        <li><a href="boekingen.php">Boekingen bekijken</a></li>
-        <li><a href="logout.php">Uitloggen</a></li>
-    </ul>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <p>Welkom, <?= htmlspecialchars($_SESSION['naam']) ?>!</p>
+    </header>
+    <main>
+        <ul>
+            <li><a href="reizen.php">Reizen beheren</a></li>
+            <li><a href="hotel.php">Hotels beheren</a></li>
+            <li><a href="vervoer.php">Vervoer beheren</a></li>
+            <li><a href="boekingen.php">Boekingen bekijken</a></li>
+            <li><a href="../php/logout.php">Uitloggen</a></li>
+        </ul>
+    </main>
 </body>
 </html>

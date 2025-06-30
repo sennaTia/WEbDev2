@@ -1,26 +1,35 @@
 <?php
+require 'db.php';
 session_start();
-require '../php/db.php'; // pad naar je db.php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $wachtwoord = $_POST['wachtwoord'] ?? '';
 
-    $stmt = $pdo->prepare("SELECT * FROM admins WHERE email = ?");
-    $stmt->execute([$email]);
-    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Ophalen gebruiker uit de juiste tabel
+    $stmt = $pdo->prepare("SELECT * FROM gebruikers WHERE email = :email");
+    $stmt->execute([':email' => $email]);
 
-    if ($admin && $wachtwoord === $admin['wachtwoord']) {
-        $_SESSION['admin_id'] = $admin['id'];
-        $_SESSION['admin_naam'] = $admin['naam'];
-        header('Location: dashboard.php');
+    $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($gebruiker && $wachtwoord === $gebruiker['wachtwoord']) {
+        // Inloggen gelukt
+        $_SESSION['gebruiker_id'] = $gebruiker['id'];
+        $_SESSION['naam'] = $gebruiker['naam'];
+        $_SESSION['is_admin'] = $gebruiker['is_admin']; // Belangrijk!
+
+        if ($gebruiker['is_admin'] == 1) {
+            // Admin => naar admin dashboard
+            header('Location: ../admin/dashboard.php');
+        } else {
+            // Gewone gebruiker => naar account
+            header('Location: ../account.php');
+        }
         exit;
     } else {
-        header('Location: login.php?error=Ongeldige+inloggegevens');
+        // Foutmelding doorsturen
+        header('Location: ../login.php?error=Ongeldige+inloggegevens');
         exit;
     }
-} else {
-    header('Location: login.php');
-    exit;
 }
 ?>
