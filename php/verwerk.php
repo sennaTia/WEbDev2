@@ -15,10 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Inloggen gelukt
         $_SESSION['gebruiker_id'] = $gebruiker['id'];
         $_SESSION['naam'] = $gebruiker['naam'];
-        header('Location: /account.php');
+        $_SESSION['is_admin'] = $gebruiker['is_admin'];
+
+        if ($gebruiker['is_admin'] == 1) {
+            header('Location: /admin/dashboard.php');
+        } else {
+            header('Location: /account.php');
+        }
         exit;
     } else {
-        echo "❌ Ongeldige inloggegevens.";
+        header('Location: /login.php?error=Ongeldige+inloggegevens');
+        exit;
     }
 }
 ?>
